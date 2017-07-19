@@ -3,6 +3,11 @@
     "description": "Extends laravel by adding confirmation tools",
     "type": "library",
     "license": "MIT",
+    "keywords": [
+        "laravel",
+		"confirm",
+		"confirmation"
+	],
     "authors": [
         {
             "name": "BePark Tech Team",
