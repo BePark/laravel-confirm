@@ -1,0 +1,40 @@
+{% block body %}
+	<div class="ui vertical stripe quote segment">
+		<div class="ui equal width stackable internally celled grid" style="align-items: center;">
+			<div class="center aligned row">
+				<div class="column">
+					{% block head %}
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="ui vertical stripe segment" style="margin-top: 50px;">
+		<div class="ui text container">
+			<div class="ui clearing segment">
+				<div class="ui form example">
+					<div class="inline fields">
+						<p class="ui header">
+							{% block text %}
+							{% endblock %}
+						</p>
+					</div>
+				</div>
+				<div class="ui left floated tiny buttons">
+					<a class="ui left labeled icon button" href="{% block back %}{% endblock %}">
+						{{ misc.iconFA('left arrow') }}
+						{{ 'confirmation.back'|trans }}
+					</a>
+					<div class="or"></div>
+					{% block confirm %}
+					{% endblock %}
+				</div>
+			</div>
+			{% block messagesInfo %}
+			{% endblock %}
+		</div>
+	</div>
+	
+{% endblock %}
+

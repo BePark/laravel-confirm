@@ -1,0 +1,24 @@
+{% extends 'layout.template-confirmation.twig' %}
+
+{% block head %}
+	<h3>{{ confirm.title|trans }}</h3>
+	<p>{{ confirm.subtitle|trans }}</p>
+{% endblock %}
+
+{% block text %}
+	{{ confirm.explain|trans }}
+{% endblock %}
+
+{% block back %}
+	{{ confirm.backUrl }}
+{% endblock %}
+
+{% block messagesInfo %}
+{% endblock %}
+
+{% block confirm %}
+	<a class="ui negative button" href="?confirm=1">
+		{{ misc.iconFA(confirm.icon) }}
+		{{ confirm.button|trans }}
+	</a>
+{% endblock %}

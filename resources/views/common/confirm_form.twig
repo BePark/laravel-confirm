@@ -1,0 +1,33 @@
+
+{% extends 'layout.template-confirmation.twig' %}
+
+{% block head %}
+	<h3>{{ confirm.title|trans }}</h3>
+	<p>{{ confirm.subtitle|trans }}</p>
+{% endblock %}
+
+{% block text %}
+	{{ confirm.explain|trans }}
+{% endblock %}
+
+{% block back %}
+	{{ confirm.backUrl }}
+{% endblock %}
+
+{% block messagesInfo %}
+{% endblock %}
+
+{% block confirm %}
+	{{ Form.open() }}
+	<button class="ui right labeled icon admin-bp-btn--success button confirm-icon-button">
+		{{ misc.iconFA(confirm.icon) }}
+		{{ confirm.button|trans }}
+	</button>
+
+	{% for key, input in confirm.oldInputs %}
+		{{ Form.hidden(key, input) }}
+	{% endfor %}
+	{{ Form.hidden('confirm', true) }}
+
+	{{ Form.close() }}
+{% endblock %}

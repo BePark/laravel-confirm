@@ -1,0 +1,23 @@
+{
+    "name": "bepark/laravel-confirm",
+    "description": "Extends laravel by adding confirmation tools",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "BePark Tech Team",
+            "email": "it+oss@bepark.eu"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "BePark\\Libs\\Confirm\\": "src/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "7.1"
+        },
+        "sort-packages": true
+    }
+}
