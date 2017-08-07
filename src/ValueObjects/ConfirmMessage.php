@@ -2,6 +2,8 @@
 
 namespace BePark\Libs\Confirm\ValueObjects;
 
+use Illuminate\Support\Collection;
+
 /**
  * Confirmation message data container
  *
@@ -102,5 +104,26 @@ class ConfirmMessage
 	public function getOldInputs(): array
 	{
 		return $this->_oldInputs;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getOldInputsForForm(): array
+	{
+		$oldInputs = new Collection(array_dot($this->_oldInputs));
+
+		$oldInputs = $oldInputs->keyBy(
+			function($value, $key)
+			{
+				$key = str_replace_first('.', '[', $key) . ']';
+
+				$key = str_replace('.', '][', $key);
+
+				return $key;
+			}
+		);
+
+		return $oldInputs->toArray();
 	}
 }
