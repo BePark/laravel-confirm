@@ -2,7 +2,7 @@
 
 namespace BePark\Libs\Confirm\Services;
 
-use BePark\Admin\ValueObjects\ConfirmMessage;
+use BePark\Libs\Confirm\ValueObjects\ConfirmMessage;
 use Illuminate\Http\Request;
 
 /**
