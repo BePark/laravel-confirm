@@ -17,6 +17,7 @@ class ConfirmMessage
 	protected $_button;
 	protected $_icon;
 	protected $_oldInputs;
+	protected $_translationVars;
 
 	/**
 	 * Create a confirm message in a simple form, back return to the previous url
@@ -26,7 +27,7 @@ class ConfirmMessage
 	 * @param array $oldInputs
 	 * @return ConfirmMessage
 	 */
-	public static function createBasic(string $labelPrefix, string $button = 'checkmark', array $oldInputs = array()): self
+	public static function createBasic(string $labelPrefix, string $button = 'checkmark', array $oldInputs = array(), array $translationVars = array()): self
 	{
 		return new self(
 			$labelPrefix . '.title',
@@ -35,11 +36,12 @@ class ConfirmMessage
 			$labelPrefix . '.button',
 			$button,
 			url()->previous(),
-			$oldInputs
+			$oldInputs,
+			$translationVars
 		);
 	}
 
-	public function __construct(string $title, string $subtitle, string $explain, string $button, string $icon, string $backUrl, array $oldInputs = array())
+	public function __construct(string $title, string $subtitle, string $explain, string $button, string $icon, string $backUrl, array $oldInputs = array(), array $translationVars = array())
 	{
 		$this->_title = $title;
 		$this->_subtitle = $subtitle;
@@ -48,6 +50,7 @@ class ConfirmMessage
 		$this->_backUrl = $backUrl;
 		$this->_oldInputs = $oldInputs;
 		$this->_icon = $icon;
+		$this->_translationVars = $translationVars;
 	}
 
 	/**
@@ -125,5 +128,10 @@ class ConfirmMessage
 		);
 
 		return $oldInputs->toArray();
+	}
+
+	public function getTranslationVars(): array
+	{
+		return $this->_translationVars;
 	}
 }
