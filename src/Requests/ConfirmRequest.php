@@ -2,7 +2,9 @@
 
 namespace BePark\Libs\Confirm\Requests;
 
-class ConfirmRequest extends \Illuminate\Foundation\Http\FormRequest
+use Illuminate\Foundation\Http\FormRequest;
+
+class ConfirmRequest extends FormRequest
 {
 	/**
 	 * Get the validation rules that apply to the request.
