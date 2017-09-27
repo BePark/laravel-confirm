@@ -119,9 +119,12 @@ class ConfirmMessage
 		$oldInputs = $oldInputs->keyBy(
 			function($value, $key)
 			{
-				$key = str_replace_first('.', '[', $key) . ']';
+				if( str_contains($key, '.') )
+				{
+					$key = str_replace_first('.', '[', $key) . ']';
 
-				$key = str_replace('.', '][', $key);
+					$key = str_replace('.', '][', $key);
+				}
 
 				return $key;
 			}
